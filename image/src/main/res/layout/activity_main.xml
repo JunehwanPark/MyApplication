@@ -11,8 +11,7 @@
     android:layout_margin="8dp"
     android:text="선택을 시작하겠습니까?" />
 <Switch
-    android:id="@+id/ChkAgree"
-    android:checked="false"
+    android:id="@+id/switchAgree"
     android:layout_margin="8dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -35,19 +34,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:id="@+id/RdoDog"
+        android:id="@+id/Rdo43"
         android:text="젤리빈(4.3)" />
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:id="@+id/RdoCat"
+        android:id="@+id/Rdo44"
         android:text="킷켓(4.4)" />
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:id="@+id/RdoRabbit"
+        android:id="@+id/Rdo50"
         android:text="롤리팝(5.0)" />
 </RadioGroup>
 
