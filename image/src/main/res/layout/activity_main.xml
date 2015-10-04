@@ -9,20 +9,23 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:text="선택을 시작하겠습니까?" />
+    android:text="선택을 시작하겠습니까?"
+    android:textSize="20dp" />
 <Switch
     android:id="@+id/switchAgree"
     android:layout_margin="8dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="시작함" />
+    android:text="시작함"
+    android:textSize="20dp" />
 <TextView
     android:id="@+id/Text2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:visibility="invisible"
-    android:text="좋아하는 안드로이드 버전은?" />
+    android:text="좋아하는 안드로이드 버전은?"
+    android:textSize="20dp" />
 <RadioGroup
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -51,8 +54,9 @@
 </RadioGroup>
 
 <ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="200dp"
+    android:layout_height="100dp"
+    android:scaleType="fitXY"
     android:layout_margin="8dp"
     android:id="@+id/ImgPet"
     android:visibility="invisible" />

@@ -4,21 +4,19 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
     TextView text1, text2;
     Switch switchAgree;
     RadioGroup rGroup1;
-    RadioButton rdo43, rdo44, rdo50;
+    RadioButton radioArray[] = new RadioButton[3];
     Button btnQuit;
     Button btnFirst;
     ImageView imgPet;
@@ -34,9 +32,9 @@ public class MainActivity extends Activity {
 
         text2 = (TextView) findViewById(R.id.Text2);
         rGroup1 = (RadioGroup) findViewById(R.id.Rgroup1);
-        rdo43 = (RadioButton) findViewById(R.id.Rdo43);
-        rdo44 = (RadioButton) findViewById(R.id.Rdo44);
-        rdo50 = (RadioButton) findViewById(R.id.Rdo50);
+        radioArray[0] = (RadioButton) findViewById(R.id.Rdo43);
+        radioArray[1] = (RadioButton) findViewById(R.id.Rdo44);
+        radioArray[2] = (RadioButton) findViewById(R.id.Rdo50);
 
         btnQuit = (Button) findViewById(R.id.BtnQuit);
         btnFirst = (Button) findViewById(R.id.BtnFirst);
@@ -61,22 +59,18 @@ public class MainActivity extends Activity {
             }
         });
 
-        rGroup1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (rGroup1.getCheckedRadioButtonId()) {
-                    case R.id.Rdo43:
-                        imgPet.setImageResource(R.drawable.dog);
-                        break;
-                    case R.id.Rdo44:
-                        imgPet.setImageResource(R.drawable.cat);
-                        break;
-                    case R.id.Rdo50:
-                        imgPet.setImageResource(R.drawable.r);
-                        break;
+        final int draw[] = { R.drawable.a43, R.drawable.a44,
+                R.drawable.a50};
+
+        for (int i = 0; i < radioArray.length; i++) {
+            final int index;
+            index = i;
+            radioArray[index].setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    imgPet.setImageResource(draw[index]);
                 }
-            }
-        });
+            });
+        }
 
         btnQuit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
