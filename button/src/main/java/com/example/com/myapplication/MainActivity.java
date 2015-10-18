@@ -18,27 +18,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("버튼");
     }
-            public void onClick(View v)
-            {
-                switch (v.getId())
-                {
-                    case R.id.btn1 : startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.nate.com")));
 
-                        break;
-                    case R.id.btn2 : startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:911")));
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn1:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.nate.com")));
 
-                        break;
+                break;
+            case R.id.btn2:
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:911")));
 
-                    case R.id.btn3 : startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("content://media/internal/images/media")));
+                break;
 
-                        break;
+            case R.id.btn3:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("content://media/internal/images/media")));
 
-                    case R.id.btn4 : finish();
+                break;
 
-                        break;
-                }
-            }
+            case R.id.btn4:
+                finish();
+
+                break;
         }
+    }
+}
 
 
 

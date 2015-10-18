@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
     TextView textResult;
     String num1, num2;
     Double result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -11,106 +11,110 @@ package com.example.com.myapplication;
 
 public class MainActivity extends Activity {
 
-    EditText edit1, edit2;
-    Button btnAdd, btnSub, btnMul, btnDiv;
-    TextView textResult;
-    String num1, num2;
-    Integer result;
+        EditText edit1;
+        EditText edit2;
+        TextView textresult;
+        Double result;
+        String num1, num2;
 
-    Button[] numButtons = new Button[10];
-    Integer[] numBtnIDs = { R.id.BtnNum0, R.id.BtnNum1, R.id.BtnNum2,
-            R.id.BtnNum3, R.id.BtnNum4, R.id.BtnNum5, R.id.BtnNum6,
-            R.id.BtnNum7, R.id.BtnNum8, R.id.BtnNum9 };
-    int i;
+        Button[] numButtons = new Button[10];
+        Integer[] numBtnIDs = { R.id.BtnNum0, R.id.BtnNum1, R.id.BtnNum2,
+                R.id.BtnNum3, R.id.BtnNum4, R.id.BtnNum5, R.id.BtnNum6,
+                R.id.BtnNum7, R.id.BtnNum8, R.id.BtnNum9 };
+       int i;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            setTitle("그리드 레이아웃 계산기");
 
-        setTitle("그리드레이아웃 계산기");
+            edit1 = (EditText)findViewById(R.id.Edit1);
+            edit2 = (EditText)findViewById(R.id.Edit2);
+            textresult = (TextView)findViewById(R.id.TextResult);
+            findViewById(R.id.BtnAdd).setOnClickListener(Calc);
+            findViewById(R.id.BtnSub).setOnClickListener(Calc);
+            findViewById(R.id.BtnMul).setOnClickListener(Calc);
+            findViewById(R.id.BtnDiv).setOnClickListener(Calc);
 
-        edit1 = (EditText) findViewById(R.id.Edit1);
-        edit2 = (EditText) findViewById(R.id.Edit2);
 
-        btnAdd = (Button) findViewById(R.id.BtnAdd);
-        btnSub = (Button) findViewById(R.id.BtnSub);
-        btnMul = (Button) findViewById(R.id.BtnMul);
-        btnDiv = (Button) findViewById(R.id.BtnDiv);
-
-        textResult = (TextView) findViewById(R.id.TextResult);
-
-        btnAdd.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
-                num1 = edit1.getText().toString();
-                num2 = edit2.getText().toString();
-                result = Integer.parseInt(num1) + Integer.parseInt(num2);
-                textResult.setText("계산 결과 : " + result.toString());
-                return false;
+            for (i = 0; i < numBtnIDs.length; i++) {
+                numButtons[i] = (Button) findViewById(numBtnIDs[i]);
             }
-        });
 
-        btnSub.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
-                num1 = edit1.getText().toString();
-                num2 = edit2.getText().toString();
-                result = Integer.parseInt(num1) - Integer.parseInt(num2);
-                textResult.setText("계산 결과 : " + result.toString());
-                return false;
-            }
-        });
+            for (i = 0; i < numBtnIDs.length; i++) {
 
-        btnMul.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
-                num1 = edit1.getText().toString();
-                num2 = edit2.getText().toString();
-                result = Integer.parseInt(num1) * Integer.parseInt(num2);
-                textResult.setText("계산 결과 : " + result.toString());
-                return false;
-            }
-        });
+                final int index;
+                index = i;
 
-        btnDiv.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
-                num1 = edit1.getText().toString();
-                num2 = edit2.getText().toString();
-                result = Integer.parseInt(num1) / Integer.parseInt(num2);
-                textResult.setText("계산 결과 : " + result.toString());
-                return false;
-            }
-        });
+                numButtons[index].setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
 
-        for (i = 0; i < numBtnIDs.length; i++) {
-            numButtons[i] = (Button) findViewById(numBtnIDs[i]);
-        }
+                        if (edit1.isFocused()) {
+                            num1 = edit1.getText().toString()
+                                    + numButtons[index].getText().toString();
+                            edit1.setText(num1);
+                        } else if (edit2.isFocused()) {
+                            num2 = edit2.getText().toString()
+                                    + numButtons[index].getText().toString();
+                            edit2.setText(num2);
+                        } else {
+                            Toast.makeText(getApplicationContext(),
+                                    "먼저 에디트텍스트를 선택하세요",Toast.LENGTH_SHORT).show();
 
-        for (i = 0; i < numBtnIDs.length; i++) {
-
-            final int index;
-            index = i;
-
-            numButtons[index].setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-
-                    if (edit1.isFocused() == true) {
-                        num1 = edit1.getText().toString()
-                                + numButtons[index].getText().toString();
-                        edit1.setText(num1);
-                    } else if (edit2.isFocused() == true) {
-                        num2 = edit2.getText().toString()
-                                + numButtons[index].getText().toString();
-                        edit2.setText(num2);
-                    } else {
-                        Toast.makeText(getApplicationContext(),
-                                "먼저 에디트텍스트를 선택하세요",Toast.LENGTH_SHORT).show();
+                        }
 
                     }
+                });
 
-                }
-            });
+            }
 
         }
 
-    }
 
+        Button.OnClickListener Calc = new View.OnClickListener() {
+            public void onClick(View v) {
+
+                String tmp1 = edit1.getText().toString();
+                String tmp2 = edit2.getText().toString();
+
+                if(tmp1.equals("") || tmp2.equals("")) {
+                    Toast.makeText(getApplicationContext(),"값이 입력되지 않았습니다", Toast.LENGTH_LONG).show();
+                }
+
+                else {
+                    Double num1 = Double.parseDouble(tmp1);
+                    Double num2 = Double.parseDouble(tmp2);
+
+                    switch (v.getId()) {
+                        case R.id.BtnAdd:
+                            result = num1 + num2;
+                            break;
+                        case R.id.BtnSub:
+                            result = num1 - num2;
+                            break;
+                        case R.id.BtnMul:
+                            result = num1 * num2;
+                            break;
+                        case R.id.BtnDiv:
+                            if (num1 == 0) {
+                                Toast.makeText(getApplicationContext(), "0은 나눌수 없습니다.", Toast.LENGTH_SHORT).show();
+                                break;
+                            }
+                            else if(num2 == 0) {
+                                Toast.makeText(getApplicationContext(), "0으로 나눌수 없습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                result = num1 / num2;
+                                break;
+                            }
+                    }
+                    textresult.setText("계산결과: " + result.toString());
+                }
+
+            }
+        };
 }
+
+
+
