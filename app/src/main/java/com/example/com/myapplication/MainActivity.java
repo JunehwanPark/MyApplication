@@ -7,27 +7,24 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setTitle("버튼예제1");
-    }
+    final int index;
+    index = i;
 
-    public void onClick(View v) {
+    numButtons[index].setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
 
-        switch (v.getId()) {
-
-            case R.id.btn1:
-
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("tel:/911")));
-            case R.id.btn2:
-                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse());
-        }
-
-    }
-}
-
+            if (edit1.isFocused()) {
+                num1 = edit1.getText().toString()
+                        + numButtons[index].getText().toString();
+                edit1.setText(num1);
+            } else if (edit2.isFocused()) {
+                num2 = edit2.getText().toString()
+                        + numButtons[index].getText().toString();
+                edit2.setText(num2);
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "먼저 에디트텍스트를 선택하세요", Toast.LENGTH_SHORT).show();
