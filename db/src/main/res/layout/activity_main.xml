@@ -44,38 +44,38 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btnInit"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="초기" />
 
         <Button
             android:id="@+id/btnInsert"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="입력" />
 
         <Button
             android:id="@+id/btnUpdate"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="수정" />
 
         <Button
             android:id="@+id/btnDelete"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="삭제" />
 
         <Button
             android:id="@+id/btnSelect"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="조회" />
     </LinearLayout>
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FFD700"
+            android:background="#82ffe9"
             android:padding="20dp" />
 
         <EditText
@@ -99,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FFD700"
+            android:background="#82ffe9"
             android:padding="20dp" />
     </LinearLayout>
 
